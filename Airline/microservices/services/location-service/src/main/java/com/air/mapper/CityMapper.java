@@ -1,0 +1,54 @@
+package com.air.mapper;
+
+import com.air.model.City;
+import com.air.payload.request.CityRequest;
+import com.air.payload.response.CityResponse;
+
+public class CityMapper {
+
+    public static City toEntity(CityRequest request) {
+        if (request == null) return null;
+
+        return City.builder()
+                .name(request.getName())
+                .cityCode(request.getCityCode())
+                .countryCode(request.getCountryCode())
+                .countryName(request.getCountryName())
+                .regionCode(request.getRegionCode())
+                .timeZoneId(request.getTimeZoneOffSet())
+                .build();
+    }
+
+    public static CityResponse toResponse(City city) {
+        if (city == null) return null;
+
+        return CityResponse.builder()
+                .name(city.getName())
+                .cityCode(city.getCityCode())
+                .countryCode(city.getCountryCode())
+                .countryName(city.getCountryName())
+                .regionCode(city.getRegionCode())
+                .timeZoneOffSet(city.getTimeZoneId())
+                .build();
+    }
+
+    public static City updateEntity(City city, CityRequest request) {
+        if (request.getName() != null) {
+            city.setName(request.getName().trim());
+        }
+        if (request.getCityCode() != null) {
+            city.setCityCode(request.getCityCode().trim());
+        }
+        if (request.getCountryCode() != null) {
+            city.setCountryCode(request.getCountryCode().trim());
+        }
+        if (request.getCountryName() != null) {
+            city.setCountryName(request.getCountryName().trim());
+        }
+        if (request.getRegionCode() != null) {
+            city.setRegionCode(request.getRegionCode().trim());
+        }
+
+        return city;
+    }
+}
