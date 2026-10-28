@@ -23,6 +23,7 @@ public class CityMapper {
         if (city == null) return null;
 
         return CityResponse.builder()
+                .id(city.getId())
                 .name(city.getName())
                 .cityCode(city.getCityCode())
                 .countryCode(city.getCountryCode())
@@ -47,6 +48,9 @@ public class CityMapper {
         }
         if (request.getRegionCode() != null) {
             city.setRegionCode(request.getRegionCode().trim());
+        }
+        if (request.getTimeZoneOffSet() != null) {
+            city.setTimeZoneId(request.getTimeZoneOffSet().trim());
         }
 
         return city;

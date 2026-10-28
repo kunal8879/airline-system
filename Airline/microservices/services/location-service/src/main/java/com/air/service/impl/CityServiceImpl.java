@@ -41,7 +41,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void delteCity(Long id) throws Exception {
+    public void deleteCity(Long id) throws Exception {
         City city = cityRepository.findById(id).orElseThrow(() -> new Exception("City does not exists with given id."));
         cityRepository.delete(city);
     }

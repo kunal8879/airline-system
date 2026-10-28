@@ -9,7 +9,8 @@ public interface CityService {
 
     CityResponse createCity(CityRequest request) throws Exception;
     CityResponse updateCity(Long id, CityRequest request) throws Exception;
-    void delteCity(Long id) throws Exception;
+
+    void deleteCity(Long id) throws Exception;
 
     CityResponse getCityById(Long id) throws Exception;
     Page<CityResponse> getAllCity(Pageable pageable);

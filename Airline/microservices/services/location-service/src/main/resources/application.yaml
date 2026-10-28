@@ -8,3 +8,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/airline_location_db
     username: postgres
     password: 8879
+
+  jpa:
+    hibernate:
+      ddl-auto: update
